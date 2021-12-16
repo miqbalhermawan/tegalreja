@@ -14,35 +14,35 @@
     <?php if (empty($informasi['foto_info2'] || $informasi['foto_info3'])) : ?>
       <div class="row gx-5 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-          <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info1']; ?>" />
+          <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info1']; ?>" />
         </div>
       </div>
     <?php elseif (empty($informasi['foto_info3'])) : ?>
       <div class="row gx-5 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-          <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info1']; ?>" />
+          <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info1']; ?>" />
         </div>
       </div>
       <div class="row gx-5 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-          <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info2']; ?>" />
+          <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info2']; ?>" />
         </div>
       </div>
     <?php else : ?>
       <div class="row gx-5 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-          <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info1']; ?>" />
+          <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info1']; ?>" />
         </div>
       </div>
       <div class="row gx-5 align-items-center">
         <div class="col-lg-6 col-xl-6">
           <div class="d-flex justify-content-center">
-            <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info2']; ?>" />
+            <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info2']; ?>" />
           </div>
         </div>
         <div class="col-lg-6 col-xl-6">
           <div class="d-flex justify-content-center">
-            <img class="img-fluid rounded-3 my-3" src="/img/<?= $informasi['foto_info3']; ?>" />
+            <img class="img-fluid rounded-3 my-3 detail-info" src="/img/<?= $informasi['foto_info3']; ?>" />
           </div>
         </div>
       </div>

@@ -11314,3 +11314,7 @@ html {
 .kk {
   max-width: 40px;
 }
+
+.detail-info {
+  max-width: 300px;
+}
