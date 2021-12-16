@@ -51,7 +51,7 @@
               <?php foreach ($layanan as $l) : ?>
                 <tr>
                   <th scope="row"><?= $i++; ?></th>
-                  <td><?= date('d F Y, H:i', strtotime($l['created_at'])); ?></td>
+                  <td><?= date('d-m-Y, H:i', strtotime($l['created_at'])); ?></td>
                   <td><?= $l['nik']; ?></td>
                   <td><?= $l['nama']; ?></td>
                   <td><?= $l['jenis_layanan']; ?></td>

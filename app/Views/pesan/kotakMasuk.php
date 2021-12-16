@@ -39,7 +39,7 @@
               <?php foreach ($pesan as $p) : ?>
                 <tr>
                   <th scope="row"><?= $i++; ?></th>
-                  <td><?= date('d F Y, H:i', strtotime($p['tanggal'])); ?></td>
+                  <td><?= date('d-m-Y, H:i', strtotime($p['tanggal'])); ?></td>
                   <td><?= $p['fullname']; ?></td>
                   <td><?= $p['pesan']; ?></td>
                   <td class="text-center">

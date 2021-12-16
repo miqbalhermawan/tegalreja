@@ -67,7 +67,7 @@
               <div class="d-flex align-items-end justify-content-between">
                 <div class="d-flex align-items-center">
                   <div class="small">
-                    <div class="text-muted"><?= date('d-m-Y h:m:s', strtotime($info['created_at'])); ?></div>
+                    <div class="text-muted"><?= date('d-m-Y, H:i', strtotime($info['created_at'])); ?></div>
                   </div>
                 </div>
               </div>

@@ -44,7 +44,7 @@
                   <div class="card-body">
                     <h5 class="card-title"><?= $info['judul']; ?></h5>
                     <p class="card-text"><?= substr($info['informasi'], 0, 300); ?></p>
-                    <p class="card-text"><small class="text-muted"><?= date('d-m-Y h:m:s', strtotime($info['created_at'])); ?></small></p>
+                    <p class="card-text"><small class="text-muted"><?= date('d-m-Y, H:i', strtotime($info['created_at'])); ?></small></p>
                   </div>
                 </div>
               </div>

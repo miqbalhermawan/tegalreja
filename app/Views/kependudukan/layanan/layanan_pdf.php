@@ -51,7 +51,7 @@
     <tbody>
       <tr>
         <td>Tanggal Input</td>
-        <td><?= date('d F Y, H:i', strtotime($layanan['created_at'])); ?></td>
+        <td><?= date('d-m-Y, H:i', strtotime($layanan['created_at'])); ?></td>
       </tr>
       <tr>
         <td>Nomor Induk Kependudukan</td>

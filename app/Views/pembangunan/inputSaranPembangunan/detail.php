@@ -22,7 +22,7 @@
             <tbody>
               <tr>
                 <th>Tanggal Input</th>
-                <td><?= date('d F Y, H:i', strtotime($saranPembangunan['created_at'])); ?></td>
+                <td><?= date('d-m-Y, H:i', strtotime($saranPembangunan['created_at'])); ?></td>
               </tr>
               <tr>
                 <th>Nomor Induk Kependudukan</th>

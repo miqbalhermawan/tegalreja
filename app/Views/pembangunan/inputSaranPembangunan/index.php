@@ -48,7 +48,7 @@
                 <?php foreach ($saranPembangunan as $s) : ?>
                   <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td><?= date('d F Y, H:i', strtotime($s['created_at'])); ?></td>
+                    <td><?= date('d-m-Y, H:i', strtotime($s['created_at'])); ?></td>
                     <td><?= $s['nama']; ?></td>
                     <td><?= $s['saran']; ?></td>
                     <td><?= $s['lokasi']; ?></td>
@@ -84,7 +84,7 @@
                 <?php foreach ($saranPembangunan as $s) : ?>
                   <tr>
                     <th scope="row"><?= $i++; ?></th>
-                    <td><?= date('d F Y, H:i', strtotime($s['created_at'])); ?></td>
+                    <td><?= date('d-m-Y, H:i', strtotime($s['created_at'])); ?></td>
                     <td><?= $s['nik']; ?></td>
                     <td><?= $s['nama']; ?></td>
                     <td><?= $s['saran']; ?></td>
