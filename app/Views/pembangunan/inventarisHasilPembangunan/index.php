@@ -40,7 +40,6 @@
                 <th scope="col">Nomor Urut</th>
                 <th scope="col">Nama Pembangunan</th>
                 <th scope="col">Volume</th>
-                <th scope="col">Biaya</th>
                 <th scope="col">Lokasi</th>
                 <th scope="col">Keterangan</th>
                 <th scope="col">Aksi</th>
@@ -54,7 +53,6 @@
                   <td><?= $i['no_urut']; ?></td>
                   <td><?= $i['nama_pembangunan']; ?></td>
                   <td><?= $i['volume']; ?></td>
-                  <td><?= "Rp." . number_format($i['biaya'], 2, ".", ","); ?></td>
                   <td><?= $i['lokasi']; ?></td>
                   <td><?= $i['keterangan']; ?></td>
                   <td>
