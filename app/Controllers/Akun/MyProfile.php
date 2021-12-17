@@ -23,7 +23,7 @@ class MyProfile extends BaseController
       'title' => 'My Profile | Desa Tegalreja'
     ];
 
-    return view('akun/myprofile/index', $data);
+    return view('akun/myProfile/index', $data);
   }
 
   public function gantiPassword()
@@ -33,7 +33,7 @@ class MyProfile extends BaseController
       'validation' => \Config\Services::validation()
     ];
 
-    return view('akun/myprofile/gantiPassword', $data);
+    return view('akun/myProfile/gantiPassword', $data);
   }
 
   public function updatePassword()
@@ -87,7 +87,7 @@ class MyProfile extends BaseController
       'validation' => \Config\Services::validation()
     ];
 
-    return view('akun/myprofile/edit', $data);
+    return view('akun/myProfile/edit', $data);
   }
 
   public function update()
@@ -207,7 +207,7 @@ class MyProfile extends BaseController
       'validation' => \Config\Services::validation()
     ];
 
-    return view('akun/myprofile/lupaPassword', $data);
+    return view('akun/myProfile/lupaPassword', $data);
   }
 
   public function updateLupaPassword()
