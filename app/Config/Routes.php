@@ -54,14 +54,14 @@ $routes->delete('/cekDataDiri/(:segment)', 'Kependudukan\CekDataDiri::delete/$1'
 $routes->get('/cekDataDiri/(:segment)', 'Kependudukan\CekDataDiri::detail/$1', ['filter' => 'role:super-admin,admin,user']);
 
 $routes->get('/layanan', 'Kependudukan\Layanan::index', ['filter' => 'role:super-admin,admin,user']);
-$routes->post('/layanan', 'Kependudukan\layanan::index', ['filter' => 'role:super-admin,admin,user']);
-$routes->get('/layanan/create', 'Kependudukan\layanan::create', ['filter' => 'role:super-admin,admin,user']);
-$routes->post('/layanan/save', 'Kependudukan\layanan::save', ['filter' => 'role:super-admin,admin,user']);
-$routes->get('/layanan/edit/(:segment)', 'Kependudukan\layanan::edit/$1', ['filter' => 'role:super-admin,admin,user']);
-$routes->post('/layanan/update/(:segment)', 'Kependudukan\layanan::update/$1', ['filter' => 'role:super-admin,admin,user']);
-$routes->get('/layanan/cetak/(:segment)', 'Kependudukan\layanan::cetak/$1', ['filter' => 'role:super-admin,admin,user']);
-$routes->delete('/layanan/(:segment)', 'Kependudukan\layanan::delete/$1', ['filter' => 'role:super-admin,user']);
-$routes->get('/layanan/(:segment)', 'Kependudukan\layanan::detail/$1', ['filter' => 'role:super-admin,admin,user']);
+$routes->post('/layanan', 'Kependudukan\Layanan::index', ['filter' => 'role:super-admin,admin,user']);
+$routes->get('/layanan/create', 'Kependudukan\Layanan::create', ['filter' => 'role:super-admin,admin,user']);
+$routes->post('/layanan/save', 'Kependudukan\Layanan::save', ['filter' => 'role:super-admin,admin,user']);
+$routes->get('/layanan/edit/(:segment)', 'Kependudukan\Layanan::edit/$1', ['filter' => 'role:super-admin,admin,user']);
+$routes->post('/layanan/update/(:segment)', 'Kependudukan\Layanan::update/$1', ['filter' => 'role:super-admin,admin,user']);
+$routes->get('/layanan/cetak/(:segment)', 'Kependudukan\Layanan::cetak/$1', ['filter' => 'role:super-admin,admin,user']);
+$routes->delete('/layanan/(:segment)', 'Kependudukan\Layanan::delete/$1', ['filter' => 'role:super-admin,user']);
+$routes->get('/layanan/(:segment)', 'Kependudukan\Layanan::detail/$1', ['filter' => 'role:super-admin,admin,user']);
 
 $routes->get('/inputSaranPembangunan', 'Pembangunan\InputSaranPembangunan::index', ['filter' => 'role:super-admin,admin,user']);
 $routes->post('/inputSaranPembangunan', 'Pembangunan\InputSaranPembangunan::index', ['filter' => 'role:super-admin,admin,user']);
