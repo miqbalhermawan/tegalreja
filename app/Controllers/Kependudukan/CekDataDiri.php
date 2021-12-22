@@ -30,7 +30,8 @@ class CekDataDiri extends BaseController
       'title' => 'Cek Data Diri | Desa Tegalreja',
       'dataDiri' => $dataDiri->paginate(10, 'penduduk'),
       'pager' => $this->cekDataDiriModel->pager,
-      'currentPage' => $currentPage
+      'currentPage' => $currentPage,
+      'validation' => \Config\Services::validation()
     ];
 
     return view('kependudukan/cekDataDiri/index', $data);
@@ -269,6 +270,56 @@ class CekDataDiri extends BaseController
     ]);
 
     session()->setFlashdata('pesan', 'Data berhasil diupdate.');
+
+    return redirect()->to('/cekDataDiri');
+  }
+
+  public function import()
+  {
+    $file = $this->request->getFile('import_excel');
+    $ext = $file->getClientExtension();
+
+    if ($ext == 'xls') {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+    } else {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+    }
+
+    $spreadsheet = $reader->load($file);
+    $sheet = $spreadsheet->getActiveSheet()->toArray();
+
+    foreach ($sheet as $s => $excel) {
+      // ! skip judul tabel
+      if ($s == 0) {
+        continue;
+      }
+
+      // ! skip data yang sama
+      $nik = $this->cekDataDiriModel->cekData($excel['2']);
+      if ($nik) {
+        if ($excel['2'] == $nik['nik']) {
+          continue;
+        }
+      }
+
+      $data = [
+        'user_id' => user()->id,
+        'nik' => $excel['2'],
+        'no_kk' => $excel['3'],
+        'nama' => $excel['4'],
+        'tempat_lahir' => $excel['5'],
+        'tanggal_lahir' => $excel['6'],
+        'jenis_kelamin' => $excel['7'],
+        'rt' => $excel['8'],
+        'rw' => $excel['9'],
+        'nama_ayah' => $excel['10'],
+        'nama_ibu' => $excel['11'],
+      ];
+
+      $this->cekDataDiriModel->save($data);
+    }
+
+    session()->setFlashdata('pesan', 'Data berhasil diimport.');
 
     return redirect()->to('/cekDataDiri');
   }

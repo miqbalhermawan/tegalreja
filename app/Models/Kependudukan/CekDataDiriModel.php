@@ -41,4 +41,9 @@ class CekDataDiriModel extends Model
 
     return $builder;
   }
+
+  public function cekData($nik)
+  {
+    return $this->table('penduduk')->where('nik', $nik)->get()->getRowArray();
+  }
 }

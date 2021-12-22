@@ -23,93 +23,106 @@
         <div class="col d-flex justify-content-md-end mb-3">
           <a href="/cekDataDiri/create" class="btn btn-primary">Tambah Data Penduduk</a>
         </div>
-      <?php endif; ?>
     </div>
-    <?php if (session()->getFlashdata('pesan')) : ?>
-      <div class="alert alert-success mt-3" role="alert">
-        <?= session()->getFlashdata('pesan'); ?>
-      </div>
-    <?php endif; ?>
-    <div class="row gx-5 my-2">
-      <div class="col">
-        <div class="table-responsive mb-3">
-          <?php if (in_groups('user')) : ?>
-            <table class="table table-hover table-bordered">
-              <thead class="table-dark align-middle text-center">
+    <div class="row d-flex justify-content-lg-start mb-3">
+      <form action="/cekDataDiri/import" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
+        <!-- Import Excel input-->
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="import_excel" name="import_excel" accept=".xls,.xlsx">
+          <button class="btn btn-primary" type="submit">Upload</button>
+          <div class="invalid-feedback">
+            <?= $validation->getError('import_excel'); ?>
+          </div>
+        </div>
+      </form>
+    </div>
+  <?php endif; ?>
+  <?php if (session()->getFlashdata('pesan')) : ?>
+    <div class="alert alert-success mt-3" role="alert">
+      <?= session()->getFlashdata('pesan'); ?>
+    </div>
+  <?php endif; ?>
+  <div class="row gx-5 my-2">
+    <div class="col">
+      <div class="table-responsive mb-3">
+        <?php if (in_groups('user')) : ?>
+          <table class="table table-hover table-bordered">
+            <thead class="table-dark align-middle text-center">
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">RT</th>
+                <th scope="col">RW</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $i = 1 + (10 * ($currentPage - 1)); ?>
+              <?php foreach ($dataDiri as $d) : ?>
                 <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Nama Lengkap</th>
-                  <th scope="col">Jenis Kelamin</th>
-                  <th scope="col">RT</th>
-                  <th scope="col">RW</th>
-                  <th scope="col">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $i = 1 + (10 * ($currentPage - 1)); ?>
-                <?php foreach ($dataDiri as $d) : ?>
-                  <tr>
-                    <th scope="row" class="text-center"><?= $i++; ?></th>
-                    <td><?= $d['nama']; ?></td>
-                    <td class="text-center"><?= $d['jenis_kelamin']; ?></td>
-                    <td class="text-center"><?= $d['rt']; ?></td>
-                    <td class="text-center"><?= $d['rw']; ?></td>
-                    <?php if (user()->no_kk == $d['no_kk']) : ?>
-                      <td class="text-center">
-                        <a href="/cekDataDiri/<?= encrypt_url($d['id']); ?>" class="btn btn-success">Detail</a>
-                      </td>
-                    <?php else : ?>
-                      <td></td>
-                    <?php endif; ?>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
-          <?php else : ?>
-            <table class="table table-hover table-bordered">
-              <thead class="table-dark align-middle text-center">
-                <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Nomor Induk Kependudukan</th>
-                  <th scope="col">No Kartu Keluarga</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Tempat Lahir</th>
-                  <th scope="col">Tanggal Lahir</th>
-                  <th scope="col">Jenis Kelamin</th>
-                  <th scope="col">RT</th>
-                  <th scope="col">RW</th>
-                  <th scope="col">Nama Ayah</th>
-                  <th scope="col">Nama Ibu</th>
-                  <th scope="col">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $i = 1 + (10 * ($currentPage - 1)); ?>
-                <?php foreach ($dataDiri as $d) : ?>
-                  <tr>
-                    <th scope="row"><?= $i++; ?></th>
-                    <td><?= $d['nik']; ?></td>
-                    <td><?= $d['no_kk']; ?></td>
-                    <td><?= $d['nama']; ?></td>
-                    <td><?= $d['tempat_lahir']; ?></td>
-                    <td><?= date('d-m-Y', strtotime($d['tanggal_lahir'])); ?></td>
-                    <td><?= $d['jenis_kelamin']; ?></td>
-                    <td><?= $d['rt']; ?></td>
-                    <td><?= $d['rw']; ?></td>
-                    <td><?= $d['nama_ayah']; ?></td>
-                    <td><?= $d['nama_ibu']; ?></td>
-                    <td>
+                  <th scope="row" class="text-center"><?= $i++; ?></th>
+                  <td><?= $d['nama']; ?></td>
+                  <td class="text-center"><?= $d['jenis_kelamin']; ?></td>
+                  <td class="text-center"><?= $d['rt']; ?></td>
+                  <td class="text-center"><?= $d['rw']; ?></td>
+                  <?php if (user()->no_kk == $d['no_kk']) : ?>
+                    <td class="text-center">
                       <a href="/cekDataDiri/<?= encrypt_url($d['id']); ?>" class="btn btn-success">Detail</a>
                     </td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
-          <?php endif; ?>
-        </div>
-        <?= $pager->links('penduduk', 'pagination'); ?>
+                  <?php else : ?>
+                    <td></td>
+                  <?php endif; ?>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        <?php else : ?>
+          <table class="table table-hover table-bordered">
+            <thead class="table-dark align-middle text-center">
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nomor Induk Kependudukan</th>
+                <th scope="col">No Kartu Keluarga</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Tempat Lahir</th>
+                <th scope="col">Tanggal Lahir</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">RT</th>
+                <th scope="col">RW</th>
+                <th scope="col">Nama Ayah</th>
+                <th scope="col">Nama Ibu</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $i = 1 + (10 * ($currentPage - 1)); ?>
+              <?php foreach ($dataDiri as $d) : ?>
+                <tr>
+                  <th scope="row"><?= $i++; ?></th>
+                  <td><?= $d['nik']; ?></td>
+                  <td><?= $d['no_kk']; ?></td>
+                  <td><?= $d['nama']; ?></td>
+                  <td><?= $d['tempat_lahir']; ?></td>
+                  <td><?= date('d-m-Y', strtotime($d['tanggal_lahir'])); ?></td>
+                  <td><?= $d['jenis_kelamin']; ?></td>
+                  <td><?= $d['rt']; ?></td>
+                  <td><?= $d['rw']; ?></td>
+                  <td><?= $d['nama_ayah']; ?></td>
+                  <td><?= $d['nama_ibu']; ?></td>
+                  <td>
+                    <a href="/cekDataDiri/<?= encrypt_url($d['id']); ?>" class="btn btn-success">Detail</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        <?php endif; ?>
       </div>
+      <?= $pager->links('penduduk', 'pagination'); ?>
     </div>
+  </div>
   </div>
 </div>
 

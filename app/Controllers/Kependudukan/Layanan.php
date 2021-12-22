@@ -309,6 +309,114 @@ class Layanan extends BaseController
         'foto_kk' => $namaFotoKk,
         'foto_lain' => $namaFotoLain
       ]);
+    } elseif (in_groups('super-admin')) {
+      if (!$this->validate([
+        'nik' => [
+          'rules' => 'required|min_length[16]|max_length[16]|integer',
+          'errors' => [
+            'required' => '{field} harus diisi.',
+            'min_length' => '{field} minimal 16 angka.',
+            'max_length' => '{field} maximal 16 angka.',
+            'integer' => '{field} harus berupa angka'
+          ]
+        ],
+        'no_kk' => [
+          'rules' => 'required|min_length[16]|max_length[16]|integer',
+          'errors' => [
+            'required' => '{field} harus diisi.',
+            'min_length' => '{field} minimal 16 angka.',
+            'max_length' => '{field} maximal 16 angka.',
+            'integer' => '{field} harus berupa angka'
+          ]
+        ],
+        'nama' => [
+          'rules' => 'required',
+          'errors' => [
+            'required' => '{field} harus diisi.',
+          ]
+        ],
+        'keterangan' => [
+          'rules' => 'required',
+          'errors' => [
+            'required' => '{field} harus diisi.',
+          ]
+        ],
+        'foto_ktp' => [
+          'rules' => 'max_size[foto_ktp,5120]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
+          'errors' => [
+            'max_size' => 'Ukuran gambar terlalu besar',
+            'is_image' => 'Yang anda pilih bukan gambar',
+            'mime_in' => 'Yang anda pilih bukan gambar'
+          ]
+        ],
+        'foto_kk' => [
+          'rules' => 'max_size[foto_kk,5120]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
+          'errors' => [
+            'max_size' => 'Ukuran gambar terlalu besar',
+            'is_image' => 'Yang anda pilih bukan gambar',
+            'mime_in' => 'Yang anda pilih bukan gambar'
+          ]
+        ],
+        'foto_lain' => [
+          'rules' => 'max_size[foto_lain,5120]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
+          'errors' => [
+            'max_size' => 'Ukuran gambar terlalu besar',
+            'is_image' => 'Yang anda pilih bukan gambar',
+            'mime_in' => 'Yang anda pilih bukan gambar'
+          ]
+        ]
+      ])) {
+        return redirect()->to('/layanan/edit/' . encrypt_url($id))->withInput();
+      }
+
+      $fileFotoKtp = $this->request->getFile('foto_ktp');
+      $fileFotoKk = $this->request->getFile('foto_kk');
+      $fileFotoLain = $this->request->getFile('foto_lain');
+
+      // cek gambar lama atau baru
+      if ($fileFotoKtp->getError() == 4) {
+        $namaFotoKtp = $this->request->getVar('fotoKtpLama');
+      } else {
+        // generate nama file random
+        $namaFotoKtp = $fileFotoKtp->getRandomName();
+        // pindah gambar
+        $fileFotoKtp->move('img', $namaFotoKtp);
+        // hapus file yang lama
+        unlink('img/' . $this->request->getVar('fotoKtpLama'));
+      }
+
+      if ($fileFotoKk->getError() == 4) {
+        $namaFotoKk = $this->request->getVar('fotoKkLama');
+      } else {
+        $namaFotoKk = $fileFotoKk->getRandomName();
+        $fileFotoKk->move('img', $namaFotoKk);
+        unlink('img/' . $this->request->getVar('fotoKkLama'));
+      }
+
+      if ($fileFotoLain->getError() == 4) {
+        $namaFotoLain = $this->request->getVar('fotoLainLama');
+      } else {
+        $namaFotoLain = $fileFotoLain->getRandomName();
+        $fileFotoLain->move('img', $namaFotoLain);
+        if ($this->request->getVar('fotoLainLama')) {
+          unlink('img/' . $this->request->getVar('fotoLainLama'));
+        }
+      }
+
+      $this->layananModel->save([
+        'id' => $id,
+        'user_id' => user()->id,
+        'nik' => $this->request->getVar('nik'),
+        'no_kk' => $this->request->getVar('no_kk'),
+        'nama' => $this->request->getVar('nama'),
+        'jenis_layanan' => $this->request->getVar('jenis_layanan'),
+        'keterangan' => $this->request->getVar('keterangan'),
+        'no_hp' => $this->request->getVar('no_hp'),
+        'foto_ktp' => $namaFotoKtp,
+        'foto_kk' => $namaFotoKk,
+        'foto_lain' => $namaFotoLain,
+        'status' => $this->request->getVar('status')
+      ]);
     } else {
       $this->layananModel->save([
         'id' => $id,

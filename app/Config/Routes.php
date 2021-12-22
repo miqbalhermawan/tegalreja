@@ -48,6 +48,7 @@ $routes->get('/cekDataDiri', 'Kependudukan\CekDataDiri::index', ['filter' => 'ro
 $routes->post('/cekDataDiri', 'Kependudukan\CekDataDiri::index', ['filter' => 'role:super-admin,admin,user']);
 $routes->get('/cekDataDiri/create', 'Kependudukan\CekDataDiri::create', ['filter' => 'role:super-admin,admin']);
 $routes->post('/cekDataDiri/save', 'Kependudukan\CekDataDiri::save', ['filter' => 'role:super-admin,admin']);
+$routes->post('/cekDataDiri/import', 'Kependudukan\CekDataDiri::import', ['filter' => 'role:super-admin,admin']);
 $routes->get('/cekDataDiri/edit/(:segment)', 'Kependudukan\CekDataDiri::edit/$1', ['filter' => 'role:super-admin,admin']);
 $routes->post('/cekDataDiri/update/(:segment)', 'Kependudukan\CekDataDiri::update/$1', ['filter' => 'role:super-admin,admin']);
 $routes->delete('/cekDataDiri/(:segment)', 'Kependudukan\CekDataDiri::delete/$1', ['filter' => 'role:super-admin,admin']);
