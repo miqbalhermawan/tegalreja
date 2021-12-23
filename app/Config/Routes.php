@@ -77,6 +77,7 @@ $routes->get('/inventarisHasilPembangunan', 'Pembangunan\InventarisHasilPembangu
 $routes->post('/inventarisHasilPembangunan', 'Pembangunan\InventarisHasilPembangunan::index', ['filter' => 'role:super-admin,admin,user']);
 $routes->get('/inventarisHasilPembangunan/create', 'Pembangunan\InventarisHasilPembangunan::create', ['filter' => 'role:super-admin,admin']);
 $routes->post('/inventarisHasilPembangunan/save', 'Pembangunan\InventarisHasilPembangunan::save', ['filter' => 'role:super-admin,admin']);
+$routes->post('/inventarisHasilPembangunan/import', 'Pembangunan\InventarisHasilPembangunan::import', ['filter' => 'role:super-admin,admin']);
 $routes->get('/inventarisHasilPembangunan/edit/(:segment)', 'Pembangunan\InventarisHasilPembangunan::edit/$1', ['filter' => 'role:super-admin,admin']);
 $routes->post('/inventarisHasilPembangunan/update/(:segment)', 'Pembangunan\InventarisHasilPembangunan::update/$1', ['filter' => 'role:super-admin,admin']);
 $routes->delete('/inventarisHasilPembangunan/(:segment)', 'Pembangunan\InventarisHasilPembangunan::delete/$1', ['filter' => 'role:super-admin,admin']);

@@ -35,4 +35,9 @@ class InventarisHasilPembangunanModel extends Model
 
     return $builder;
   }
+
+  public function cekData($no_urut)
+  {
+    return $this->table('inventaris_pembangunan')->where('no_urut', $no_urut)->get()->getRowArray();
+  }
 }

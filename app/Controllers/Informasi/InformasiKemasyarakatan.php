@@ -88,7 +88,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info1' => [
-        'rules' => 'uploaded[foto_info1]|max_size[foto_info1,5120]|is_image[foto_info1]|mime_in[foto_info1,image/jpg,image/jpeg,image/png]',
+        'rules' => 'uploaded[foto_info1]|max_size[foto_info1,10240]|is_image[foto_info1]|mime_in[foto_info1,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'uploaded' => '{field} harus dipilih.',
           'max_size' => 'Ukuran gambar terlalu besar',
@@ -97,7 +97,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info2' => [
-        'rules' => 'max_size[foto_info2,5120]|is_image[foto_info2]|mime_in[foto_info2,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_info2,10240]|is_image[foto_info2]|mime_in[foto_info2,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -105,7 +105,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info3' => [
-        'rules' => 'max_size[foto_info3,5120]|is_image[foto_info3]|mime_in[foto_info3,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_info3,10240]|is_image[foto_info3]|mime_in[foto_info3,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -193,7 +193,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info1' => [
-        'rules' => 'max_size[foto_info1,5120]|is_image[foto_info1]|mime_in[foto_info1,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_info1,10240]|is_image[foto_info1]|mime_in[foto_info1,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -201,7 +201,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info2' => [
-        'rules' => 'max_size[foto_info2,5120]|is_image[foto_info2]|mime_in[foto_info2,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_info2,10240]|is_image[foto_info2]|mime_in[foto_info2,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -209,7 +209,7 @@ class InformasiKemasyarakatan extends BaseController
         ]
       ],
       'foto_info3' => [
-        'rules' => 'max_size[foto_info3,5120]|is_image[foto_info3]|mime_in[foto_info3,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_info3,10240]|is_image[foto_info3]|mime_in[foto_info3,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',

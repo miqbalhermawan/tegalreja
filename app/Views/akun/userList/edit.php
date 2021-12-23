@@ -11,7 +11,7 @@
     </div>
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-8 col-xl-6">
-        <form action="/userList/update/<?= $user->userid; ?>" method="post">
+        <form action="/userList/update/<?= encrypt_url($user->userid); ?>" method="post">
           <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
 
           <!-- Nama input-->

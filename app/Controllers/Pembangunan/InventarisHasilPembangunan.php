@@ -30,7 +30,8 @@ class InventarisHasilPembangunan extends BaseController
       'title' => 'Inventaris Hasil Pembangunan | Desa Tegalreja',
       'inventarisPembangunan' => $inventarisPembangunan->paginate(10, 'inventaris_pembangunan'),
       'pager' => $this->inventarisHasilPembangunanModel->pager,
-      'currentPage' => $currentPage
+      'currentPage' => $currentPage,
+      'validation' => \Config\Services::validation()
     ];
     return view('pembangunan/inventarisHasilPembangunan/index', $data);
   }
@@ -210,6 +211,52 @@ class InventarisHasilPembangunan extends BaseController
     ]);
 
     session()->setFlashdata('pesan', 'Inventaris berhasil diupdate.');
+
+    return redirect()->to('/inventarisHasilPembangunan');
+  }
+
+  public function import()
+  {
+    $file = $this->request->getFile('import_excel');
+    $ext = $file->getClientExtension();
+
+    if ($ext == 'xls') {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+    } else {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+    }
+
+    $spreadsheet = $reader->load($file);
+    $sheet = $spreadsheet->getActiveSheet()->toArray();
+
+    foreach ($sheet as $s => $excel) {
+      // ! skip judul tabel
+      if ($s == 0) {
+        continue;
+      }
+
+      // ! skip data yang sama
+      $no_urut = $this->inventarisHasilPembangunanModel->cekData($excel['1']);
+      if ($no_urut) {
+        if ($excel['1'] == $no_urut['no_urut']) {
+          continue;
+        }
+      }
+
+      $data = [
+        'user_id' => user()->id,
+        'no_urut' => $excel['1'],
+        'nama_pembangunan' => $excel['2'],
+        'volume' => $excel['3'],
+        'biaya' => $excel['4'],
+        'lokasi' => $excel['5'],
+        'keterangan' => $excel['6']
+      ];
+
+      $this->inventarisHasilPembangunanModel->save($data);
+    }
+
+    session()->setFlashdata('pesan', 'Data berhasil diimport.');
 
     return redirect()->to('/inventarisHasilPembangunan');
   }

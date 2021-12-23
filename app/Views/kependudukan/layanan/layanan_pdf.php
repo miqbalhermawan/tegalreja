@@ -89,7 +89,7 @@
     <li>Untuk pengajuan KTP bisa menginputkan foto surat kehilangan KTP dari kepolisian di Foto KTP</li>
     <li>Foto syarat lainnya digunakan untuk menginput persyaratan lain seperti foto surat kematian atau foto surat kelahiran dari rumah sakit</li>
     <li>Untuk Pengajuan KTP, Pengajuan Perubahan Kartu Keluarga, Pengajuan Surat Kelahiran, Pengajuan Surat Kematian, dan Pengajuan Surat Kehilangan tetap harus mendatangi kantor desa untuk pengurusannya</li>
-    <li>Operasional Desa hari senin s/d kamis jam 08.00 s/d 14.00 dan hari jumat jam 08.00 s/d 11.00</li>
+    <li>Pengajuan layanan online hari senin s/d kamis jam 08.00 s/d 12.00 dan hari jum'at jam 08.00 s/d jam 11.00</li>
     <li>Harap membawa semua persyaratan saat datang ke kantor desa</li>
   </ul>
 

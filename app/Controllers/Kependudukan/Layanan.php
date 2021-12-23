@@ -110,7 +110,7 @@ class Layanan extends BaseController
         ]
       ],
       'foto_ktp' => [
-        'rules' => 'uploaded[foto_ktp]|max_size[foto_ktp,5120]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
+        'rules' => 'uploaded[foto_ktp]|max_size[foto_ktp,10240]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'uploaded' => '{field} harus dipilih.',
           'max_size' => 'Ukuran gambar terlalu besar',
@@ -119,7 +119,7 @@ class Layanan extends BaseController
         ]
       ],
       'foto_kk' => [
-        'rules' => 'uploaded[foto_kk]|max_size[foto_kk,5120]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
+        'rules' => 'uploaded[foto_kk]|max_size[foto_kk,10240]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'uploaded' => '{field} harus dipilih.',
           'max_size' => 'Ukuran gambar terlalu besar',
@@ -128,7 +128,7 @@ class Layanan extends BaseController
         ]
       ],
       'foto_lain' => [
-        'rules' => 'max_size[foto_lain,5120]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_lain,10240]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -235,7 +235,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_ktp' => [
-          'rules' => 'max_size[foto_ktp,5120]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_ktp,10240]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -243,7 +243,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_kk' => [
-          'rules' => 'max_size[foto_kk,5120]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_kk,10240]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -251,7 +251,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_lain' => [
-          'rules' => 'max_size[foto_lain,5120]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_lain,10240]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -342,7 +342,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_ktp' => [
-          'rules' => 'max_size[foto_ktp,5120]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_ktp,10240]|is_image[foto_ktp]|mime_in[foto_ktp,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -350,7 +350,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_kk' => [
-          'rules' => 'max_size[foto_kk,5120]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_kk,10240]|is_image[foto_kk]|mime_in[foto_kk,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -358,7 +358,7 @@ class Layanan extends BaseController
           ]
         ],
         'foto_lain' => [
-          'rules' => 'max_size[foto_lain,5120]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
+          'rules' => 'max_size[foto_lain,10240]|is_image[foto_lain]|mime_in[foto_lain,image/jpg,image/jpeg,image/png]',
           'errors' => [
             'max_size' => 'Ukuran gambar terlalu besar',
             'is_image' => 'Yang anda pilih bukan gambar',
@@ -405,7 +405,6 @@ class Layanan extends BaseController
 
       $this->layananModel->save([
         'id' => $id,
-        'user_id' => user()->id,
         'nik' => $this->request->getVar('nik'),
         'no_kk' => $this->request->getVar('no_kk'),
         'nama' => $this->request->getVar('nama'),

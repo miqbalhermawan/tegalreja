@@ -93,7 +93,7 @@ class InputSaranPembangunan extends BaseController
         ]
       ],
       'foto_lokasi' => [
-        'rules' => 'uploaded[foto_lokasi]|max_size[foto_lokasi,5120]|is_image[foto_lokasi]|mime_in[foto_lokasi,image/jpg,image/jpeg,image/png]',
+        'rules' => 'uploaded[foto_lokasi]|max_size[foto_lokasi,10240]|is_image[foto_lokasi]|mime_in[foto_lokasi,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'uploaded' => '{field} harus dipilih.',
           'max_size' => 'Ukuran gambar terlalu besar',
@@ -102,7 +102,7 @@ class InputSaranPembangunan extends BaseController
         ]
       ],
       'foto_diri' => [
-        'rules' => 'uploaded[foto_diri]|max_size[foto_diri,5120]|is_image[foto_diri]|mime_in[foto_diri,image/jpg,image/jpeg,image/png]',
+        'rules' => 'uploaded[foto_diri]|max_size[foto_diri,10240]|is_image[foto_diri]|mime_in[foto_diri,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'uploaded' => '{field} harus dipilih.',
           'max_size' => 'Ukuran gambar terlalu besar',
@@ -194,7 +194,7 @@ class InputSaranPembangunan extends BaseController
         ]
       ],
       'foto_lokasi' => [
-        'rules' => 'max_size[foto_lokasi,5120]|is_image[foto_lokasi]|mime_in[foto_lokasi,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_lokasi,10240]|is_image[foto_lokasi]|mime_in[foto_lokasi,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
@@ -202,7 +202,7 @@ class InputSaranPembangunan extends BaseController
         ]
       ],
       'foto_diri' => [
-        'rules' => 'max_size[foto_diri,5120]|is_image[foto_diri]|mime_in[foto_diri,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[foto_diri,10240]|is_image[foto_diri]|mime_in[foto_diri,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',

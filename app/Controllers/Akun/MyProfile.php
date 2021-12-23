@@ -161,7 +161,7 @@ class MyProfile extends BaseController
       ],
       'user_image' => [
         'label' => 'Foto Profile',
-        'rules' => 'max_size[user_image,2048]|is_image[user_image]|mime_in[user_image,image/jpg,image/jpeg,image/png]',
+        'rules' => 'max_size[user_image,10240]|is_image[user_image]|mime_in[user_image,image/jpg,image/jpeg,image/png]',
         'errors' => [
           'max_size' => 'Ukuran gambar terlalu besar',
           'is_image' => 'Yang anda pilih bukan gambar',
