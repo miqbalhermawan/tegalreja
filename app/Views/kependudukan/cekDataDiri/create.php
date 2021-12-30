@@ -57,8 +57,8 @@
           <div class="form-floating mb-3">
             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
               <option selected>Pilih Jenis Kelamin</option>
-              <option value="Laki-laki" <?= set_select('jenis_kelamin', 'Laki-laki'); ?>>Laki-laki</option>
-              <option value="Perempuan" <?= set_select('jenis_kelamin', 'Perempuan'); ?>>Perempuan</option>
+              <option value="LAKI-LAKI" <?= set_select('jenis_kelamin', 'LAKI-LAKI'); ?>>LAKI-LAKI</option>
+              <option value="PEREMPUAN" <?= set_select('jenis_kelamin', 'PEREMPUAN'); ?>>PEREMPUAN</option>
             </select>
             <label for="floatingSelect">Jenis Kelamin</label>
           </div>

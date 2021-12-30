@@ -57,8 +57,8 @@
           <div class="form-floating mb-3">
             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
               <option selected>Pilih Jenis Kelamin</option>
-              <option value="Laki-laki" <?= set_select('jenis_kelamin', 'Laki-laki', ($dataDiri['jenis_kelamin'] == "Laki-laki") ? true : false); ?>>Laki-laki</option>
-              <option value="Perempuan" <?= set_select('jenis_kelamin', 'Perempuan', ($dataDiri['jenis_kelamin'] == "Perempuan") ? true : false); ?>>Perempuan</option>
+              <option value="LAKI-LAKI" <?= set_select('jenis_kelamin', 'LAKI-LAKI', ($dataDiri['jenis_kelamin'] == "LAKI-LAKI") ? true : false); ?>>LAKI-LAKI</option>
+              <option value="PEREMPUAN" <?= set_select('jenis_kelamin', 'PEREMPUAN', ($dataDiri['jenis_kelamin'] == "PEREMPUAN") ? true : false); ?>>PEREMPUAN</option>
             </select>
             <label for="floatingSelect">Jenis Kelamin</label>
           </div>
